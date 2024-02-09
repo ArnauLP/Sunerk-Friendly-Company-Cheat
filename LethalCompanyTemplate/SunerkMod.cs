@@ -1,6 +1,8 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
+using GameNetcodeStuff;
 using HarmonyLib;
+using LethalCompanyTemplate.Patches;
 
 namespace LethalCompanyTemplate
 {
@@ -32,6 +34,7 @@ namespace LethalCompanyTemplate
             mls.LogInfo("The test mod has awaken:D");
 
             harmony.PatchAll(typeof(SunerkMod));
+            harmony.PatchAll(typeof(PlayerControllerBPatch));
         }
     }
 }
