@@ -22,7 +22,8 @@ namespace LethalCompanyTemplate.Managers
         [ClientRpc]
         public void DeathNotificationServerRpc(ulong id)
         {
-            string name = StartOfRound.Instance.allPlayerObjects[(int) id].GetComponent<PlayerControllerB>().playerUsername;
+            string name = StartOfRound.Instance.allPlayerObjects[(int)id].GetComponent<PlayerControllerB>()
+                .playerUsername;
             HUDManager.Instance.DisplayTip("Player Has Died", $"{name} is now dead!");
         }
     }

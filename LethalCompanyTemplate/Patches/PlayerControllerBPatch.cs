@@ -1,6 +1,5 @@
 ﻿using HarmonyLib;
 using GameNetcodeStuff;
-using LethalCompanyTemplate.Manager;
 using LethalCompanyTemplate.Managers;
 
 namespace LethalCompanyTemplate.Patches
@@ -17,10 +16,12 @@ namespace LethalCompanyTemplate.Patches
 
         // TODO: no va
         // TODO: change also damage multiplier
-        [HarmonyPatch("Health")]
+        [HarmonyPatch("Damage")]
         [HarmonyPostfix]
-        static void infinitHealthPatch(ref int __health, ref int __maxHealth, ref int __damageAmount)
+        [HarmonyPrefix]
+        static void infinitHealthPatch(ref int __health, ref int __maxHealth, ref int __damageAmount, ref int __damageNumber)
         {
+            __damageNumber = 0;
             __damageAmount = 0;
             __maxHealth = int.MaxValue;
             __health = __maxHealth;
@@ -34,10 +35,12 @@ namespace LethalCompanyTemplate.Patches
             {
                 return;
             }
+
             if (__instance.isPlayerDead)
             {
                 return;
             }
+
             if (!__instance.AllowPlayerDeath())
             {
                 return;
@@ -49,7 +52,7 @@ namespace LethalCompanyTemplate.Patches
             }
             else
             {
-                NetworkManagerMyMod.instance.RequestDeathNotificationServerRpc(__instance.playerClientId).;
+                NetworkManagerMyMod.instance.RequestDeathNotificationServerRpc(__instance.playerClientId);
             }
         }
     }

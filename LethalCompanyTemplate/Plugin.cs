@@ -18,20 +18,31 @@ namespace LethalCompanyTemplate
 
         private readonly Harmony harmony = new Harmony(PLUGIN_GUID);
 
-        public static Plugin Instance;
-
-        //internal ManualLogSource mls;
+        public static Plugin instance;
 
         public GameObject netManagerPrefab;
 
         private void Awake()
         {
             // Plugin startup logic
-            //Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
 
-            if (Instance == null)
+            var types = Assembly.GetExecutingAssembly().GetTypes();
+            foreach (var type in types)
             {
-                Instance = this;
+                var methods = type.GetMethods(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
+                foreach (var method in methods)
+                {
+                    var attributes = method.GetCustomAttributes(typeof(RuntimeInitializeOnLoadMethodAttribute), false);
+                    if (attributes.Length > 0)
+                    {
+                        method.Invoke(null, null);
+                    }
+                }
+            }
+
+            if (instance == null)
+            {
+                instance = this;
             }
 
             string assetDir = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
@@ -40,10 +51,6 @@ namespace LethalCompanyTemplate
 
             netManagerPrefab = bundle.LoadAsset<GameObject>("Assets/LethalCompanyTemplate/NetworkManagerMyMod.prefab");
             netManagerPrefab.AddComponent<NetworkManagerMyMod>();
-
-            //mls = BepInEx.Logging.Logger.CreateLogSource(PLUGIN_GUID);
-
-            //mls.LogInfo("The test mod has awaken:D");
 
             harmony.PatchAll(typeof(Plugin));
             harmony.PatchAll(typeof(PlayerControllerBPatch));
