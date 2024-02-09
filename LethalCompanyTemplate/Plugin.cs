@@ -1,11 +1,6 @@
-﻿using System.IO;
-using System.Reflection;
-using BepInEx;
-using BepInEx.Logging;
+﻿using BepInEx;
 using HarmonyLib;
-using LethalCompanyTemplate.Managers;
 using LethalCompanyTemplate.Patches;
-using UnityEngine;
 
 namespace LethalCompanyTemplate
 {
@@ -20,40 +15,19 @@ namespace LethalCompanyTemplate
 
         public static Plugin instance;
 
-        public GameObject netManagerPrefab;
+        //public GameObject netManagerPrefab;
 
         private void Awake()
         {
             // Plugin startup logic
-
-            var types = Assembly.GetExecutingAssembly().GetTypes();
-            foreach (var type in types)
-            {
-                var methods = type.GetMethods(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
-                foreach (var method in methods)
-                {
-                    var attributes = method.GetCustomAttributes(typeof(RuntimeInitializeOnLoadMethodAttribute), false);
-                    if (attributes.Length > 0)
-                    {
-                        method.Invoke(null, null);
-                    }
-                }
-            }
-
             if (instance == null)
             {
                 instance = this;
             }
 
-            string assetDir = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
-                "Sunerk mod");
-            AssetBundle bundle = AssetBundle.LoadFromFile(assetDir);
-
-            netManagerPrefab = bundle.LoadAsset<GameObject>("Assets/LethalCompanyTemplate/NetworkManagerMyMod.prefab");
-            netManagerPrefab.AddComponent<NetworkManagerMyMod>();
-
-            harmony.PatchAll(typeof(Plugin));
-            harmony.PatchAll(typeof(PlayerControllerBPatch));
+            // harmony.PatchAll(typeof(Plugin));
+            // harmony.PatchAll(typeof(PlayerControllerBPatch));
+            harmony.PatchAll();
             Logger.LogInfo("Patched network");
 
         }

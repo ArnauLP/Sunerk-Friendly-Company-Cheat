@@ -1,59 +1,31 @@
 ﻿using HarmonyLib;
 using GameNetcodeStuff;
-using LethalCompanyTemplate.Managers;
 
 namespace LethalCompanyTemplate.Patches
 {
     [HarmonyPatch(typeof(PlayerControllerB))]
     internal class PlayerControllerBPatch
     {
+        // GodMode Toggle
+        public static bool GodModeEnabled = true;
+
+        // Infinite sprint patch
         [HarmonyPatch("Update")]
         [HarmonyPostfix]
-        static void infiniteSprintPatch(ref float __sprintMeter)
+        static void InfiniteSprintPatch(ref float ___sprintMeter)
         {
-            __sprintMeter = 1f;
+            ___sprintMeter = 1f;
         }
 
-        // TODO: no va
-        // TODO: change also damage multiplier
-        [HarmonyPatch("Damage")]
-        [HarmonyPostfix]
+        // GodMode patch -> This method disables orignal game method so damage never (theorically) happens
+        [HarmonyPatch("DamagePlayer")]
         [HarmonyPrefix]
-        static void infinitHealthPatch(ref int __health, ref int __maxHealth, ref int __damageAmount, ref int __damageNumber)
+        static bool PreFixDamagePlayer(ref int damageNumber)
         {
-            __damageNumber = 0;
-            __damageAmount = 0;
-            __maxHealth = int.MaxValue;
-            __health = __maxHealth;
-        }
+            return !GodModeEnabled;
 
-        [HarmonyPostfix]
-        [HarmonyPatch("KillPlayer")]
-        static void NotifyPlayersOfDeath(PlayerControllerB __instance)
-        {
-            if (__instance.IsOwner)
-            {
-                return;
-            }
-
-            if (__instance.isPlayerDead)
-            {
-                return;
-            }
-
-            if (!__instance.AllowPlayerDeath())
-            {
-                return;
-            }
-
-            if (__instance.IsHost || __instance.IsServer)
-            {
-                NetworkManagerMyMod.instance.DeathNotificationServerRpc(__instance.playerClientId);
-            }
-            else
-            {
-                NetworkManagerMyMod.instance.RequestDeathNotificationServerRpc(__instance.playerClientId);
-            }
+            // Disable method to avoid crash (client or server)
+            // Execute method
         }
     }
 }
