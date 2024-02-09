@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "KbY5zgSqFORNjcxUlLfwOBkD57b93V3utf5HokX5fDyDOjn7OwXHOfSDTtfmZmaPdX3IN470U7WQ8cHa/OYXgg==",
+  "dgSpecHash": "6J217kMsQvD94c3E8fcdvlIHFEbVeoYcKhCdWKBx4puMe+AnfUP+F21t3IXRHg467K7Ukf5GegwdX9DXd8sanA==",
   "success": true,
   "projectFilePath": "C:\\Users\\arnau\\Downloads\\LethalCompanyTemplate-main\\LethalCompanyTemplate-main\\LethalCompanyTemplate\\LethalCompanyTemplate.csproj",
   "expectedPackageFiles": [
@@ -9,11 +9,13 @@
     "C:\\Users\\arnau\\.nuget\\packages\\bepinex.core\\5.4.21\\bepinex.core.5.4.21.nupkg.sha512",
     "C:\\Users\\arnau\\.nuget\\packages\\bepinex.plugininfoprops\\1.1.0\\bepinex.plugininfoprops.1.1.0.nupkg.sha512",
     "C:\\Users\\arnau\\.nuget\\packages\\harmonyx\\2.7.0\\harmonyx.2.7.0.nupkg.sha512",
+    "C:\\Users\\arnau\\.nuget\\packages\\lethalcompany.gamelibs.steam\\49.0.0-alpha.1\\lethalcompany.gamelibs.steam.49.0.0-alpha.1.nupkg.sha512",
     "C:\\Users\\arnau\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\arnau\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\arnau\\.nuget\\packages\\mono.cecil\\0.11.4\\mono.cecil.0.11.4.nupkg.sha512",
     "C:\\Users\\arnau\\.nuget\\packages\\monomod.runtimedetour\\21.12.13.1\\monomod.runtimedetour.21.12.13.1.nupkg.sha512",
     "C:\\Users\\arnau\\.nuget\\packages\\monomod.utils\\21.12.13.1\\monomod.utils.21.12.13.1.nupkg.sha512",
+    "C:\\Users\\arnau\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\arnau\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\arnau\\.nuget\\packages\\system.collections.nongeneric\\4.3.0\\system.collections.nongeneric.4.3.0.nupkg.sha512",
     "C:\\Users\\arnau\\.nuget\\packages\\system.collections.specialized\\4.3.0\\system.collections.specialized.4.3.0.nupkg.sha512",

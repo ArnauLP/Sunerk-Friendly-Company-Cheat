@@ -59,6 +59,10 @@
               "target": "Package",
               "version": "[1.*, )"
             },
+            "LethalCompany.GameLibs.Steam": {
+              "target": "Package",
+              "version": "[49.0.0-alpha.1, )"
+            },
             "UnityEngine.Modules": {
               "include": "Compile",
               "target": "Package",
