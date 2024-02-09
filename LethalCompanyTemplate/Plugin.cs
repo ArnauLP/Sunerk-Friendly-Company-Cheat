@@ -15,8 +15,6 @@ namespace LethalCompanyTemplate
 
         public static Plugin instance;
 
-        //public GameObject netManagerPrefab;
-
         private void Awake()
         {
             // Plugin startup logic
