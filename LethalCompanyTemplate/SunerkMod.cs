@@ -4,10 +4,14 @@ using HarmonyLib;
 
 namespace LCMod
 {
-    [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
+    [BepInPlugin(PLUGIN_GUID, PLUGIN_NAME, PLUGIN_VERSION)]
     public class SunerkMod : BaseUnityPlugin
     {
-        private readonly Harmony harmony = new Harmony(PluginInfo.PLUGIN_GUID);
+        private const string PLUGIN_GUID = "LethalCompanyMod";
+        private const string PLUGIN_NAME = "Sunerk Mod";
+        private const string PLUGIN_VERSION = "0.0.1";
+
+        private readonly Harmony harmony = new Harmony(PLUGIN_GUID);
 
         private static SunerkMod Instance;
 
@@ -23,7 +27,7 @@ namespace LCMod
                 Instance = this;
             }
 
-            mls = BepInEx.Logging.Logger.CreateLogSource(PluginInfo.PLUGIN_GUID);
+            mls = BepInEx.Logging.Logger.CreateLogSource(PLUGIN_GUID);
 
             mls.LogInfo("The test mod has awaken:D");
 
