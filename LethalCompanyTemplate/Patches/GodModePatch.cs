@@ -28,7 +28,7 @@ namespace LethalCompanyTemplate.Patches
 
         // Disable player death
         [HarmonyPatch("AllowPlayerDeath")]
-        [HarmonyPrefix] // -> Mode
+        [HarmonyPrefix]
         public static bool DisablePlayerDeath(ref bool __result)
         {
             if (godModeEnabled)

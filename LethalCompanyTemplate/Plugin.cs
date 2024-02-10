@@ -1,8 +1,5 @@
-﻿using System;
-using BepInEx;
-using BepInEx.Configuration;
+﻿using BepInEx;
 using HarmonyLib;
-using UnityEngine;
 
 namespace LethalCompanyTemplate
 {

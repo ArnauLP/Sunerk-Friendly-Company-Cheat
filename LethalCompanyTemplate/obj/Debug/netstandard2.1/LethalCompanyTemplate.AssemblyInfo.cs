@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("A template for Lethal Company")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+945a2099bb2a08d5d994a8bd86c1a7ec48209fb5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ec862ee318b300694bc8e5e50f3b415dbbfd5a4")]
 [assembly: System.Reflection.AssemblyProductAttribute("LethalCompanyTemplate")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LethalCompanyTemplate")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
