@@ -1,14 +1,16 @@
-﻿using BepInEx;
+﻿using System;
+using BepInEx;
+using BepInEx.Configuration;
 using HarmonyLib;
-using LethalCompanyTemplate.Patches;
+using UnityEngine;
 
 namespace LethalCompanyTemplate
 {
     [BepInPlugin(PLUGIN_GUID, PLUGIN_NAME, PLUGIN_VERSION)]
     public class Plugin : BaseUnityPlugin
     {
-        private const string PLUGIN_GUID = "LethalCompanyMod";
-        private const string PLUGIN_NAME = "Sunerk Mod";
+        private const string PLUGIN_GUID = "com.Sunerk.LethalCompanyCheat";
+        private const string PLUGIN_NAME = "Sunerk's Friendly Company";
         private const string PLUGIN_VERSION = "0.0.1";
 
         private readonly Harmony harmony = new Harmony(PLUGIN_GUID);
@@ -26,8 +28,7 @@ namespace LethalCompanyTemplate
             // harmony.PatchAll(typeof(Plugin));
             // harmony.PatchAll(typeof(PlayerControllerBPatch));
             harmony.PatchAll();
-            Logger.LogInfo("Patched network");
-
+            Logger.LogInfo("Patched Binaries");
         }
     }
 }
