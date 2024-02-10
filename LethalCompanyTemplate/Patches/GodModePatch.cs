@@ -8,13 +8,12 @@ namespace LethalCompanyTemplate.Patches
     {
         // GodMode Toggle
         public static bool godModeEnabled = true;
-        public static bool GodModeEnabled { get; set; }
 
         // GodMode patch -> This method disables orignal game method so damage never (theorically) happens (looks
         // like only fall damage)
         [HarmonyPatch("DamagePlayer")]
         [HarmonyPrefix]
-        static bool DisableDamagePlayerPatch(ref int damageNumber)
+        public static bool DisableDamagePlayerPatch(ref int damageNumber)
         {
             // Disables method to avoid crash (client or server) or Executes method
             // reset damageNumber to 0 to avoid extra damage caused by 'unknwon'
